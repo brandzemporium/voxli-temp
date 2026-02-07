@@ -21,9 +21,7 @@ interface DemoConfig {
 
 const STORAGE_KEY = 'voxli_demo_calls';
 const MAX_DAILY_CALLS = 3;
-const DEMO_CONFIG_URL =
-  process.env.NEXT_PUBLIC_DEMO_CONFIG_URL ||
-  'https://voxliapp.vercel.app/api/widget/demo-config';
+const DEMO_CONFIG_URL = 'https://voxliapp.vercel.app/api/widget/demo-config';
 
 function getTodayStr(): string {
   return new Date().toISOString().split('T')[0];
