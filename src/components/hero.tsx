@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error' | 'duplicate';
 
@@ -17,7 +17,7 @@ export function Hero() {
     setState('submitting');
 
     try {
-      const { error } = await supabase.from('waitlist').insert({ email: trimmed });
+      const { error } = await getSupabase().from('waitlist').insert({ email: trimmed });
 
       if (error) {
         if (error.code === '23505') {
